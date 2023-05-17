@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Detection_K</string>
+    <string name="camera_id">CameraId</string>
+    <string name="save_and_start">저장 및 실행</string>
+    <string name="scan_QR">QR코드 스캔하기</string>
+    <string name="connectBT">블루투스 연결하기</string>
+    <string name="turnOnBt">블루투스 켜기</string>
+    <string name="motion">Motion</string>
+    <string name="object">Object</string>
+    <string name="todo">TODO</string>
+</resources>

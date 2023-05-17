@@ -1,0 +1,87 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+}
+
+android {
+    namespace 'com.example.detection_k'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.detection_k"
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation 'com.microsoft.signalr:signalr:5.0.0'
+
+    //lifecycle 을 위해
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
+
+    //OnnxRuntime 을 위해
+    // https://mvnrepository.com/artifact/com.microsoft.onnxruntime/onnxruntime-android
+    implementation 'com.microsoft.onnxruntime:onnxruntime-android:1.12.1'
+
+    //CameraX 를 위해
+    // The following line is optional, as the core library is included indirectly by camera-camera2
+    implementation "androidx.camera:camera-camera2:1.2.2"
+    implementation "androidx.camera:camera-lifecycle:1.2.2"
+    // If you want to additionally use the CameraX View class
+    implementation "androidx.camera:camera-view:1.2.2"
+    implementation 'androidx.camera:camera-extensions:1.2.2'
+
+    //서버 전송을 위한 mqtt 를 위해
+    // https://mvnrepository.com/artifact/org.eclipse.paho/org.eclipse.paho.client.mqttv3
+    implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.5'
+    implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
+
+    //RoomDB를 사용하기 위해
+    implementation("androidx.room:room-runtime:2.5.1")
+    implementation project(path: ':sdk')
+    annotationProcessor("androidx.room:room-compiler:2.5.1")
+    // To use Kotlin annotation processing tool (kapt)
+    kapt("androidx.room:room-compiler:2.5.1")
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation("androidx.room:room-ktx:2.5.1")
+
+
+    //QR코드 사용을 위해
+    // https://mvnrepository.com/artifact/com.journeyapps/zxing-android-embedded
+    implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
+
+    //http 통신을 위해
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+
+}
