@@ -5,15 +5,17 @@
 
 #### onnx 변환은 yolov8 공식사이트(https://github.com/ultralytics/ultralytics) 를 사용했습니다. 
   * 변환 방식입니다. (공식사이트에도 있습니다.)
-  '''
-   from ultralytics import YOLO
+  * 파이썬 코드 
+ 
+```python
+from ultralytics import YOLO
 
-   # Load a model
-   model = YOLO("학습한 모델 경로")
+# Load a model
+model = YOLO("학습한 모델의 경로")  
 
-   # Use the model
-   success = model.export(format="onnx")  # export the model to ONNX format
-   '''
+# Use the model
+success = model.export(format="onnx")  # export the model to ONNX format
+```
     
 ------------
 
